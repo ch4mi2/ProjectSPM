@@ -1,5 +1,6 @@
 # React + Vite
 
 # How to run
-`yarn install`
+
+`yarn install` <br />
 `npm run dev`
