@@ -1,20 +1,18 @@
 # ProjectSPM
 Web app for Ocular disease recognition leveraging CNN
 
-# Client React + Vite
+### Client - React + Vite
 ### Run
 `yarn install` <br /><br />
 `npm run dev`
 
-# Server Flask
+### Server - Flask
 
 ### Prerequisites
 - Python
 - 
 ### Setting Up a Virtual Environment
-
 It's recommended to create a virtual environment to isolate project dependencies. Open a terminal navigate to the root directory of the project and run the following commands:
-
 ```bash
 # Create a virtual environment (replace 'myenv' with your preferred name)
 python -m venv myenv
@@ -25,13 +23,11 @@ myenv\Scripts\activate
 ```
 
 Once you have activated the virtual environment, you can install the project dependencies using pip
-
 ```bash
 pip install -r requirements.txt
 ```
 
 If you install anyother dependencies make sure to update the requirements.txt by running the following command
-
 ```bash
 pip freeze > requirements.txt
 ```
