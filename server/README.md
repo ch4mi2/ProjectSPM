@@ -10,34 +10,9 @@ Follow these instructions to set up the project on your local machine.
 
 - Python 
 
-### Project Structure
-├── backend/   \s\s
-│   ├── app/   \s\s
-│   │   ├── models/ \s\s
-│   │   │   └── cataract.h5  \s\s
-│   │   │ \s\s
-│   │   ├── controller/ \s\s
-│   │   │   ├── __init__.py  # Optional, only if needed \s\s
-│   │   │   \s\s
-│   │   │   \s\s 
-│   │   │   \s\s
-│   │   ├── routes/ \s\s
-│   │   │   ├── __init__.py  # Optional, only if needed \s\s
-│   │   │   \s\s
-│   │   │   \s\s
-│   │   │   \s\s
-│   ├── run.py \s\s
-│   ├── requirements.txt \s\s
-│   ├── venv \s\s
-
-
-
-
-
-
 ### Setting Up a Virtual Environment
 
-It's recommended to create a virtual environment to isolate project dependencies. Open a terminal and run the following commands:
+It's recommended to create a virtual environment to isolate project dependencies. Open a terminal navigate to the root of the project and run the following commands:
 
 ```bash
 # Create a virtual environment (replace 'myenv' with your preferred name)
