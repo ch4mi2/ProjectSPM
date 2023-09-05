@@ -8,8 +8,32 @@ Follow these instructions to set up the project on your local machine.
 
 ### Prerequisites
 
-- Python 3.6 or higher
-- pip (Python package manager)
+- Python 
+
+### Project Structure
+├── backend/
+│   ├── app/
+│   │   ├── models/
+│   │   │   └── cataract.h5
+│   │   │  
+│   │   ├── controller/ 
+│   │   │   ├── __init__.py  # Optional, only if needed
+│   │   │   
+│   │   │    
+│   │   │   
+│   │   ├── routes/
+│   │   │   ├── __init__.py  # Optional, only if needed
+│   │   │   
+│   │   │   
+│   │   │   
+│   ├── run.py
+│   ├── requirements.txt
+│   ├── venv
+
+
+
+
+
 
 ### Setting Up a Virtual Environment
 
