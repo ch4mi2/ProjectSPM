@@ -1,28 +1,19 @@
-from flask import Flask, request, jsonify
+# app/controllers/cataract_controller.py
+from flask import request, jsonify
 from tensorflow import keras
 import numpy as np
 from PIL import Image
 import io
 import cv2
+from app import app
 
+# Load the cataract model
+cataract_model = keras.models.load_model('app/models/cataract.h5')
 
-app = Flask(__name__)
-
-CATARACT_MODEL_PATH = 'models/cataract.h5'
-
-# Load the pre-trained CNN model
-model = keras.models.load_model(CATARACT_MODEL_PATH)
-
-# Define the expected input dimensions for the model
-input_width, input_height = 224, 224
-
-@app.route('/')
-def index():
-    return 'CNN Model Prediction App'
-
-@app.route('/predict', methods=['POST'])
-def predict():
+def predict_cataract(request):
     try:
+        input_width, input_height = 224, 224
+
         # Get the image file from the request
         image = request.files['image']
 
@@ -31,12 +22,9 @@ def predict():
         image = cv2.resize(image, (input_width, input_height))
         img_array = np.array(image) / 255.0  # Normalize the pixel values
 
-        # Make predictions using the loaded model
-        predictions = model.predict(np.expand_dims(img_array, axis=0))
+        # Make predictions using the cataract model
+        predictions = cataract_model.predict(np.expand_dims(img_array, axis=0))
 
         return jsonify({'predictions': predictions.tolist()})
     except Exception as e:
         return jsonify({'error': str(e)})
-
-if __name__ == '__main__':
-    app.run(debug=True)
