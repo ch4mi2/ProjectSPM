@@ -21,7 +21,7 @@ python -m venv myenv
 myenv\Scripts\activate
 ```
 
-###Add your venv to the gitignore file
+### Add your venv to the gitignore file
 
 Once you have activated the virtual environment, you can install the project dependencies using pip
 ```
