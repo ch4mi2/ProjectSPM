@@ -11,24 +11,24 @@ Follow these instructions to set up the project on your local machine.
 - Python 
 
 ### Project Structure
-├── backend/
-│   ├── app/
-│   │   ├── models/
-│   │   │   └── cataract.h5
-│   │   │  
-│   │   ├── controller/ 
-│   │   │   ├── __init__.py  # Optional, only if needed
-│   │   │   
-│   │   │    
-│   │   │   
-│   │   ├── routes/
-│   │   │   ├── __init__.py  # Optional, only if needed
-│   │   │   
-│   │   │   
-│   │   │   
-│   ├── run.py
-│   ├── requirements.txt
-│   ├── venv
+├── backend/   \s\s
+│   ├── app/   \s\s
+│   │   ├── models/ \s\s
+│   │   │   └── cataract.h5  \s\s
+│   │   │ \s\s
+│   │   ├── controller/ \s\s
+│   │   │   ├── __init__.py  # Optional, only if needed \s\s
+│   │   │   \s\s
+│   │   │   \s\s 
+│   │   │   \s\s
+│   │   ├── routes/ \s\s
+│   │   │   ├── __init__.py  # Optional, only if needed \s\s
+│   │   │   \s\s
+│   │   │   \s\s
+│   │   │   \s\s
+│   ├── run.py \s\s
+│   ├── requirements.txt \s\s
+│   ├── venv \s\s
 
 
 
