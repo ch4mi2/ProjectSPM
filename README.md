@@ -21,6 +21,8 @@ python -m venv myenv
 myenv\Scripts\activate
 ```
 
+### Add your venv to the gitignore file
+
 Once you have activated the virtual environment, you can install the project dependencies using pip
 ```
 pip install -r requirements.txt
@@ -30,6 +32,7 @@ If you install anyother dependencies make sure to update the requirements.txt by
 ```
 pip freeze > requirements.txt
 ```
+
 
 ### Run app
 ```
