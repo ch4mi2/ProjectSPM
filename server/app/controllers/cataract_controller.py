@@ -8,7 +8,7 @@ import cv2
 from app import app
 
 # Load the cataract model
-cataract_model = keras.models.load_model('app/models/cataract.h5')
+cataract_model = keras.models.load_model('app/models/vgg3.h5')
 
 def predict_cataract(request):
     try:
