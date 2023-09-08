@@ -17,19 +17,21 @@ def predict_DR(request):
         # image = Image.open(image)
         image = cv2.resize(image, (input_width, input_height))
         image_arr = np.array(image) / 255.0
-        print(image_arr.shape)
+        # print(image_arr.shape)
         image_arr = image_arr[np.newaxis, ...]
-        print(image_arr.shape)
+        # print(image_arr.shape)
     
         predictions = DR_model.predict(image_arr)
 
-        if(np.argmax(predictions) == 1 ):
+        print(np.argmax(predictions))
+
+        if(np.argmax(predictions) == 0 ):
             result = "Mild Diabetic Retinopathy"
-        elif(np.argmax(predictions) == 2 ):
+        elif(np.argmax(predictions) == 1 ):
             result = "Moderate Diabetic Retinopathy"
-        elif(np.argmax(predictions) == 3 ):
+        elif(np.argmax(predictions) == 2 ):
             result = "No Diabetic Retinopathy"
-        elif(np.argmax(predictions) == 4 ):
+        elif(np.argmax(predictions) == 3 ):
             result = "Proliferative Diabetic Retinopathy"
         else:
             result = "Severe Diabetic Retinopathy"
