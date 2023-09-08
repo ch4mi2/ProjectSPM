@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const GetStarted = () => {
   return (
@@ -21,12 +21,16 @@ const GetStarted = () => {
       {/* Empty Cards with Lorem Ipsum Text */}
       <div className="max-w-sm bg-white shadow-md rounded-md overflow-hidden m-2">
         <div className="p-4">
-          <h2 className="text-2xl font-semibold text-gray-800">Lorem Ipsum</h2>
+          <h2 className="text-2xl font-semibold text-gray-800">Diabetic Retinopathy</h2>
           <p className="text-gray-600 mt-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            bibendum, neque ac efficitur varius, ex justo tristique urna, ut
-            venenatis velit arcu a turpis.
+            Diabetic retinopathy is an eye condition that can cause vision loss
+            and blindness in people who have diabetes.
           </p>
+          <Link to="/diabeticRetinopathy">
+            <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 mt-4 rounded-full">
+              Test now
+            </button>
+          </Link>
         </div>
       </div>
 

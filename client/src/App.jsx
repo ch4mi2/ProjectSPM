@@ -4,7 +4,7 @@ import AppRoutes from './routes/app-routes';
 
 function App() {
   return (
-    <div class="flex flex-col h-screen justify-between">
+    <div className="flex flex-col h-screen justify-between">
       <Header />
       <AppRoutes />
       <Footer />
