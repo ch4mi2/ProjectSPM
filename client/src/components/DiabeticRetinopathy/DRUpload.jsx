@@ -1,33 +1,35 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const DRUpload = () => {
-    const [file, setFile] = useState(null);
+  const [file, setFile] = useState(null);
 
-    const handleFileChange = (e) => {
-        const selectedFile = e.target.files[0];
-        setFile(selectedFile);
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+  };
+
+  const handleSubmit = async () => {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    const response = await fetch('/api/predict/dr', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!response.ok) {
+      alert('Error uploading file');
+    } else {
+      const data = await response.json();
+      console.log('Response from server:', data);
     }
-
-    const handleSubmit = async () => {
-      const formData = new FormData();
-      formData.append("image", file);
-
-      const response = await fetch("/api/predict/dr", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        alert("Error uploading file");
-      } else {
-        const data = await response.json();
-        console.log("Response from server:", data);
-      }
-    }
+  };
 
   return (
-    <div className="justify-self-center w-7/12 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <h4 className="mb-12 text-2xl font-semibold text-white flex justify-center">Diabetic Retinopathy detection</h4>
+    <div className="my-10 justify-self-center p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:w-[500px] md:w-[400px] w-[90vw]">
+      <h4 className="mb-12 text-2xl font-semibold text-white flex justify-center">
+        Diabetic Retinopathy detection
+      </h4>
       <div className="flex items-center justify-center min-w-min">
         <label
           htmlFor="dropzone-file"
@@ -57,24 +59,40 @@ const DRUpload = () => {
               SVG, PNG, JPG or GIF (MAX. 800x400px)
             </p>
           </div>
-          <input id="dropzone-file" type="file" className="hidden" onChange={handleFileChange}/>
-        </label>  
+          <input
+            id="dropzone-file"
+            type="file"
+            className="hidden"
+            onChange={handleFileChange}
+          />
+        </label>
       </div>
 
       <div className="flex justify-center">
-      {file &&<div className="w-1/4 bg-white border border-gray-200 rounded-lg shadow m-12 p-5">
-          {file && (<img src={URL.createObjectURL(file)} alt="Uploaded" className="rounded-lg"/>)} 
-      </div>}
+        {file && (
+          <div className="w-1/4 bg-white border border-gray-200 rounded-lg shadow m-12 p-5">
+            {file && (
+              <img
+                src={URL.createObjectURL(file)}
+                alt="Uploaded"
+                className="rounded-lg"
+              />
+            )}
+          </div>
+        )}
       </div>
 
       <div className="flex justify-center">
-      {file && (<button
+        {file && (
+          <button
             type="submit"
             className="w-80 rounded-full bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
             onClick={handleSubmit}
-          >Submit</button>)}
+          >
+            Submit
+          </button>
+        )}
       </div>
-      
     </div>
   );
 };
