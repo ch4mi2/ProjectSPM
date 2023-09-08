@@ -22,7 +22,6 @@ const GlaucomaUpload = ({ result }) => {
     } else {
       const data = await response.json();
       result(data);
-      console.log('Response from server:', data);
     }
   };
   return (
