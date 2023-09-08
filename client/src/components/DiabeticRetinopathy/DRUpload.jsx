@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const DRUpload = () => {
     const [file, setFile] = useState(null);
+    const [data, setData] = useState(null);
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
@@ -20,13 +21,13 @@ const DRUpload = () => {
       if (!response.ok) {
         alert("Error uploading file");
       } else {
-        const data = await response.json();
+        setData(await response.json());
         console.log("Response from server:", data);
       }
     }
 
   return (
-    <div className="justify-self-center w-7/12 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="justify-self-center w-7/12 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-5">
       <h4 className="mb-12 text-2xl font-semibold text-white flex justify-center">Diabetic Retinopathy detection</h4>
       <div className="flex items-center justify-center min-w-min">
         <label
@@ -62,8 +63,8 @@ const DRUpload = () => {
       </div>
 
       <div className="flex justify-center">
-      {file &&<div className="w-1/4 bg-white border border-gray-200 rounded-lg shadow m-12 p-5">
-          {file && (<img src={URL.createObjectURL(file)} alt="Uploaded" className="rounded-lg"/>)} 
+      {file &&<div className=" bg-white border border-gray-200 rounded-lg shadow m-9 p-3">
+          {file && (<img src={URL.createObjectURL(file)} alt="Uploaded" className="rounded-lg w-80"/>)} 
       </div>}
       </div>
 
@@ -74,7 +75,6 @@ const DRUpload = () => {
             onClick={handleSubmit}
           >Submit</button>)}
       </div>
-      
     </div>
   );
 };
