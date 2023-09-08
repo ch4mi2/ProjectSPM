@@ -7,7 +7,7 @@ import DiabeticRetinopathy from '../pages/DiabeticRetinopathy';
 
 const AppRoutes = () => {
   return (
-    <div className="h-full">
+    <div className="flex-1">
       <Router>
         <Routes>
           {/* Public Routes */}

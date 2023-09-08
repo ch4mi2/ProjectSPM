@@ -26,7 +26,7 @@ const GlaucomaUpload = ({ result }) => {
     }
   };
   return (
-    <div className=" p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:w-[500px] w-[400px]">
+    <div className=" p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:w-[500px] md:w-[400px] w-[90vw]">
       <h4 className="mb-12 text-2xl font-semibold text-white flex justify-center">
         Glaucoma detection
       </h4>
