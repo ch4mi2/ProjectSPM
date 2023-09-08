@@ -1,22 +1,22 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const DRUpload = () => {
     const [file, setFile] = useState(null);
     const [data, setData] = useState(null);
 
-    const handleFileChange = (e) => {
-        const selectedFile = e.target.files[0];
-        setFile(selectedFile);
-    }
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+  };
 
-    const handleSubmit = async () => {
-      const formData = new FormData();
-      formData.append("image", file);
+  const handleSubmit = async () => {
+    const formData = new FormData();
+    formData.append('image', file);
 
-      const response = await fetch("/api/predict/dr", {
-        method: "POST",
-        body: formData,
-      });
+    const response = await fetch('/api/predict/dr', {
+      method: 'POST',
+      body: formData,
+    });
 
       if (!response.ok) {
         alert("Error uploading file");
@@ -58,8 +58,13 @@ const DRUpload = () => {
               SVG, PNG, JPG or GIF (MAX. 800x400px)
             </p>
           </div>
-          <input id="dropzone-file" type="file" className="hidden" onChange={handleFileChange}/>
-        </label>  
+          <input
+            id="dropzone-file"
+            type="file"
+            className="hidden"
+            onChange={handleFileChange}
+          />
+        </label>
       </div>
 
       <div className="flex justify-center">
@@ -69,11 +74,15 @@ const DRUpload = () => {
       </div>
 
       <div className="flex justify-center">
-      {file && (<button
+        {file && (
+          <button
             type="submit"
             className="w-80 rounded-full bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
             onClick={handleSubmit}
-          >Submit</button>)}
+          >
+            Submit
+          </button>
+        )}
       </div>
     </div>
   );
