@@ -63,7 +63,7 @@ const Landing = () => {
                 github="https://github.com/ch4mi2"
                 img={Chamithu}
                 linkedIn="https://www.linkedin.com/in/chamithu-gunawardana-009909215/"
-                name={'Chamithu Gunawardhana'}
+                name={'Chamithu Gunawardana'}
               />
               <Member github="" img={''} linkedIn="" name={'Shenan Perera'} />
             </div>
