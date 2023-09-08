@@ -1,5 +1,6 @@
 import { useState } from 'react';
-const GlaucomaUpload = () => {
+
+const GlaucomaUpload = ({ result }) => {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -20,12 +21,12 @@ const GlaucomaUpload = () => {
       alert('Error uploading file');
     } else {
       const data = await response.json();
-      alert(data.predictions);
+      result(data);
       console.log('Response from server:', data);
     }
   };
   return (
-    <div className="justify-self-center w-7/12 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className=" p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:w-[500px] w-[400px]">
       <h4 className="mb-12 text-2xl font-semibold text-white flex justify-center">
         Glaucoma detection
       </h4>
