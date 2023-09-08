@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import Member from '../components/Members';
 import Pawara from '/assets/images/pawara.jpg';
