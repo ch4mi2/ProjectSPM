@@ -7,13 +7,17 @@ import DiabeticRetinopathy from '../pages/DiabeticRetinopathy';
 
 const AppRoutes = () => {
   return (
-    <div>
+    <div className="flex-1">
       <Router>
         <Routes>
           {/* Public Routes */}
           <Route path="/glaucoma" element={<Glaucoma />} />
           <Route path="/getstarted/cataract" element={<Cataract />} />
-          <Route exact path="/diabeticRetinopathy" element={<DiabeticRetinopathy />} />
+          <Route
+            exact
+            path="/diabeticRetinopathy"
+            element={<DiabeticRetinopathy />}
+          />
           <Route exact path="/" element={<Landing />} />
           <Route exact path="/getstarted" element={<GetStarted />} />
         </Routes>
