@@ -24,7 +24,7 @@ const GetStarted = () => {
         <div className="p-4">
           <h2 className="text-2xl font-semibold text-gray-800">Cataract</h2>
           <p className="text-gray-600 mt-2">
-            Cataract is a clouding of the eye's natural lens, which lies behind
+            Cataract is a clouding of the eye&apos;s natural lens, which lies behind
             the iris and the pupil.
           </p>
           <Link to="/getstarted/cataract">
