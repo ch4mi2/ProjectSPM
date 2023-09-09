@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { PhotoIcon } from "@heroicons/react/24/solid";
-import img from "../../assets/img.png";
+
 const CataractUpload = () => {
   const [file, setFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -47,70 +46,86 @@ const CataractUpload = () => {
   };
 
   return (
-    <form className="h-[100vh]" onSubmit={handleSubmit}>
-      <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-        <div className="col-span-full">
-          <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-            <div className="text-center">
-              <PhotoIcon
-                className="mx-auto h-12 w-12 text-gray-300"
-                aria-hidden="true"
+    <div className="my-10 justify-self-center p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:w-[500px] md:w-[400px] w-[90vw]">
+      <h4 className="mb-12 text-2xl font-semibold text-white flex justify-center">
+        Cataract detection
+      </h4>
+      <div className="flex items-center justify-center min-w-min">
+        <label
+          htmlFor="dropzone-file"
+          className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+        >
+          <div className="flex flex-col items-center justify-center pt-5 pb-6">
+            <svg
+              className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 20 16"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
               />
-              <div className="mt-4 flex justify-center text-sm leading-6 text-gray-600">
-                <label
-                  htmlFor="file"
-                  className="relative cursor-pointer rounded-md bg-white font-semibold text-orange-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-orange-600 focus-within:ring-offset-2 hover:text-orange-500"
-                >
-                  <span>Upload a file</span>
-                  <input
-                    type="file"
-                    id="file"
-                    name="file"
-                    onChange={handleFileChange}
-                    accept="image/*"
-                    className="sr-only"
-                  />
-                </label>
-                <p className="pl-1">or drag and drop</p>
-              </div>
-              <p className="text-xs leading-5 text-gray-600">
-                PNG, JPG, GIF up to 10MB
-              </p>
-
-              <div className=" mt-2">
-                {file && (
-                  <div>
-                    <img src={URL.createObjectURL(file)} alt="Uploaded" />
-                  </div>
-                )}
-              </div>
-              <div className=" mt-2">
-                {isFileSet && (
-                  <button
-                    type="submit"
-                    className="rounded-full bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
-                  >
-                    Submit
-                  </button>
-                )}
-              </div>
-              <div className="mt-2">
-                {isLoading ? (
-                  <p>Loading...</p>
-                ) : (
-                  fetchResult && (
-                    <div>
-                      <p>Prediction: {fetchResult.predictions[0][0]}</p>
-                      <img src={img} />
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
+            </svg>
+            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+              <span className="font-semibold">Click to upload</span> or drag and
+              drop
+            </p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              PNG or JPG
+            </p>
           </div>
-        </div>
+          <input
+            id="dropzone-file"
+            type="file"
+            className="hidden"
+            onChange={handleFileChange}
+            accept="image/*"
+          />
+        </label>
       </div>
-    </form>
+
+      <div className="flex justify-center">
+        {file && (
+          <div className="w-1/2 bg-white border border-gray-200 rounded-lg shadow m-12 p-5">
+            {file && (
+              <img
+                src={URL.createObjectURL(file)}
+                alt="Uploaded"
+                className="rounded-lg"
+              />
+            )}
+          </div>
+        )}
+      </div>
+
+      <div className="flex justify-center">
+        {file && (
+          <button
+            type="submit"
+            className="w-80 rounded-full bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        )}
+      </div>
+      <div className="text-white flex justify-center mt-2">
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          fetchResult && (
+            <div>
+              <p>Prediction: {fetchResult.predictions[0][0]}</p>
+            </div>
+          )
+        )}
+      </div>
+    </div>
   );
 };
 
