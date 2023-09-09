@@ -8,6 +8,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+import { useNavigate } from "react-router-dom"
 
 const Header = () => {
   return (
@@ -30,6 +31,11 @@ const Header = () => {
         </li> */}
           </ul>
         </div>
+        <div>
+            <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 mt-4 rounded-full">
+              <a href = "/gallery">Profile</a>
+            </button>
+         </div>
       </div>
     </nav>
   );
