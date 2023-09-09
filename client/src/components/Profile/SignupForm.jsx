@@ -29,9 +29,11 @@ const SignupForm = () => {
     }
 
     return (
+      <div>
         <form onSubmit={handleSignup}>
         <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col">
+  <div><h3><b>Already have a account <a href = "/login"><u>Login</u> </a> </b></h3></div>
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Sign Up</h1>
     </div>
@@ -53,7 +55,7 @@ const SignupForm = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">SIGNUP</button>
+          <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 mt-4 rounded-full">SIGNUP</button>
         </div>
         {error && <span>Incorrect email or password!</span>}
       </div>
@@ -61,6 +63,7 @@ const SignupForm = () => {
   </div>
 </div>
 </form>
+</div>
     );
 }
 

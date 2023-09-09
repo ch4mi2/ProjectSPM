@@ -20,7 +20,7 @@ const LoginForm = () => {
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user)
-                navigate("/getstarted")
+                navigate("/profile")
                 // ...
             })
             .catch((error) => {
@@ -53,7 +53,7 @@ const LoginForm = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 mt-4 rounded-full">Login</button>
         </div>
         {error && <span>Incorrect email or password!</span>}
       </div>

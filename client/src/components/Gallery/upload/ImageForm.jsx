@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import ProgressBar from "../ProgressItem";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../../firebase/config"
 import uploadFileProgress from "../../../firebase/uploadFIleProgress";
@@ -43,7 +42,6 @@ const ImageForm = () => {
                     // setProgress
                 )
                 console.log(url)
-                // setImageURL(null)a
             }catch(error){
                 alert(error.message)
                 console.log(error)
@@ -53,14 +51,22 @@ const ImageForm = () => {
 
 
     return (
+        <div>
         <form>
-        <input type="file" className="file-input file-input-bordered w-full max-w-xs" onChange={handleChange}/>
+        <input type="file" className="file-input file-input-bordered w-full max-w-xs bg-orange-500" onChange={handleChange}/>
         <div className="output">
                 {error && <div className="error">{error}</div>}
                 {file && <div>{file.name}</div>}
-                {/* {file && <ProgressBar file={file} user={currentUser}/>}  */}
         </div>
         </form>
+         <div>
+         <a href = "/profile">
+          <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 mt-4 rounded-full">
+            Back
+          </button>
+          </a>  
+      </div>
+    </div>  
     )
 }
 
