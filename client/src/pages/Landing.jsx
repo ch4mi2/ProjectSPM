@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Member from '../components/Members';
 import Pawara from '/assets/images/pawara.jpg';
 import Chamithu from '/assets/images/chamithu.jpeg';
+import Dinal from '/assets/images/Dinal.jpg';
 
 const Landing = () => {
   return (
@@ -48,7 +49,7 @@ const Landing = () => {
             <div className="ml-[-1rem] flex flex-row flex-wrap place-content-evenly space-evenly w-4/5">
               <Member
                 github=""
-                img={''}
+                img={Dinal}
                 linkedIn=""
                 name={'Dinal Senadheera'}
               />
