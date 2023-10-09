@@ -59,42 +59,21 @@ def predict_DR(request):
 
         with torch.set_grad_enabled(False):
             preds = model(image.unsqueeze(0)).detach().cpu().numpy()
-            # preds_round = preds.argmax(axis = 1)
-            # coef = [0.5, 1.5, 2.5, 3.5]
-            # if preds < coef[0]:
-            #     preds_round = 0
-            # elif preds >= coef[0] and preds < coef[1]:
-            #     preds_round = 1
-            # elif preds >= coef[1] and preds < coef[2]:
-            #     preds_round = 2
-            # elif preds >= coef[2] and preds < coef[3]:
-            #     preds_round = 3
-            # else:
-            #     preds_round = 4
-        return jsonify({'predictions': str(preds)})
+            preds_round = preds.argmax()
+
+            if preds_round == 0:
+                prediction = "No Diabetic Retinopathy"
+            elif preds_round == 1:
+                prediction = "Mild Diabetic Retinopathy"
+            elif preds_round == 2:
+                prediction = "Moderate Diabetic Retinopathy"
+            elif preds_round == 3:
+                prediction = "Severe Diabetic Retinopathy"
+            elif preds_round == 4:
+                prediction = "Proliferate Diabetic Retinopathy"
+
+        return jsonify({'predictions': prediction})
     except Exception as e:
         print(e)
         return jsonify({'error': str(e)})
     
-
-# temp_dir = tempfile.mkdtemp()
-# temp_file_path = os.path.join(temp_dir, uploaded_file.filename)
-# uploaded_file .save(temp_file_path)
-
-# image = Image.open(temp_file_path)
-# # image = cv2.imdecode(np.fromstring(image.read(), np.uint8), cv2.IMREAD_COLOR)
-# image = image.resize((image_size, image_size))
-# image_array = np.array(image)
-# valid_trans = transforms.Compose([transforms.ToPILImage(),
-#                                     transforms.ToTensor(),
-#                                     ])
-# image = valid_trans(image_array)
-# print(image.shape)
-
-# # image = torch.tensor(image)
-# image = image.permute(2, 1, 0)
-
-
-# # inputs = image.to(device, dtype = torch.float)
-# # image = torch.from_numpy(image)
-# print(image.shape)
